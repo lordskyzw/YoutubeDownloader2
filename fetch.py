@@ -19,9 +19,10 @@ def downloadd():
     try:
         video = screen.get()
         YouTube(video).streams.get_highest_resolution().download(str(download_path))
-        tkinter.Label(root, text=f'Saving to {download_path}').pack()
+        confirmation = tkinter.Label(root, text=f'Saving to {download_path}')
+        confirmation.pack()
     except:
-        tkinter.Label(root, text='No link inserted')
+        tkinter.Label(root, text='No link inserted!', bg='white', fg='red', font=("Helvetica", 24)).pack()
     
 download_button= tkinter.Button(root, command=downloadd, text="Download", highlightcolor="red", width=20, height=2)
 download_button.pack()

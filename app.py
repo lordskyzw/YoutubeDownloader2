@@ -10,7 +10,7 @@ screen.insert(0, "Enter the link of the video you want to download")
 screen.pack()
 
 def downloadd():
-    download_path = r'C:\Users\Tarmica\Downloads'
+    download_path = r'C:\Users\Lords\Downloads'
     try:
         video = screen.get()
         YouTube(video).streams.get_highest_resolution().download(output_path=download_path)

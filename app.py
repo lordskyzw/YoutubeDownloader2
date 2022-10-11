@@ -1,25 +1,32 @@
+import os
+import tkinter
 from pytube import YouTube
 import tkinter
 
 root = tkinter.Tk()
-root.title("Tarmica's Youtube Downloader")
+root.iconbitmap('./media/icon.ico')
+root.title("Fetch")
 root.geometry("500x500")
 
 screen = tkinter.Entry(root, width=50)
 screen.insert(0, "Enter the link of the video you want to download")
+screen.bind('<FocusIn>', lambda args: screen.delete('0', 'end'))
 screen.pack()
 
 def downloadd():
-    download_path = r'C:\Users\Lords\Downloads'
+    name = os.getlogin()
+    download_path = f'C:\\Users\\{name}\\Downloads'
     try:
         video = screen.get()
-        YouTube(video).streams.get_highest_resolution().download(output_path=download_path)
+        YouTube(video).streams.get_highest_resolution().download(str(download_path))
         tkinter.Label(root, text=f'Saving to {download_path}').pack()
     except:
         tkinter.Label(root, text='No link inserted')
     
 download_button= tkinter.Button(root, command=downloadd, text="Download", highlightcolor="red", width=20, height=2)
 download_button.pack()
+footnote = tkinter.Label(root, text="Made by Engineer Chiwara")
+footnote.pack()
 
 
 root.mainloop()

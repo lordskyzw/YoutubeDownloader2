@@ -57,7 +57,7 @@ downloadaud_button.pack()
 footnote = tkinter.Label(root, text="Made by Engineer Chiwara", bg='white', fg='black', font=("Helvetica", 8))
 footnote.pack(side=tkinter.BOTTOM)
 
-root.wm_attributes("-topmost", True)
+
 root.wm_attributes("-transparentcolor", "white")
 
 

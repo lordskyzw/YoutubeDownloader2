@@ -1,6 +1,5 @@
 import os
 import tkinter
-from tkinter.ttk import *
 from pytube import YouTube
 
 name = os.getlogin()
